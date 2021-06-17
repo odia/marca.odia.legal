@@ -8,70 +8,78 @@
     <title>Creador de logo de O.D.I.A.</title>
     <script src="assets/canvg.js"></script>
     <style>
+    body {
+        font: 14px Merriweather;
+        background: #feead1;
+    }
     #container {
-      margin: auto;
-      max-width: 800px;
-      min-width: 600px;
-      font: 14px Merriweather;
+        margin: auto;
+        max-width: 800px;
+        min-width: 600px;
     }
     .box {
-      padding: 40px;
-      margin: 10px 0;
+        padding: 40px;
+        margin: 10px 0;
     }
     #select-color {
-      background: #bdd2ce;
-      color: black;
+        background: #bdd2ce;
+        color: black;
+        position: fixed;
+        width: 100%;
+        margin-top: -10px
+        top: 0px;
+        left: 0px;
     }
     #select-logo {
-      background: #feead1;
-      color: black;
+        color: black;
+        margin-top: 100px;
     }
     #select-logo ul {
-      list-style-type: none;
-      padding: 0;
+        list-style-type: none;
+        padding: 0;
     }
     #select-logo ul li {
-      padding: 0;
+        padding: 0;
     }
     #select-logo ul li a {
-      display: block;
-      background: url('images/transparent.png') repeat;
-      padding: 42px;
-      width: calc(100% - 100px);
-      border: 4px solid #403136;
-      margin: 20px 0 0 0;
+        display: block;
+        background: url('images/transparent.png') repeat;
+        padding: 42px;
+        width: calc(100% - 100px);
+        border: 4px solid #403136;
+        margin: 20px 0 0 0;
     }
     #select-logo ul li svg {
-      display: block;
-      width: 100%;
+        display: block;
+        width: 100%;
     }
-
-    #select-color span.sample {
-      display: block;
-      width: 40px;
-      height: 40px;
-      margin: 0 auto;
+    #select-color .sample span{
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
     }
-    #select-color table {
-      width: 100%;
+    #select-color .sample.active {
+        width: 50px;
+        height: 50px;
+        margin-bottom: -4px;
     }
-    #select-color td {
-      width: calc(100% / 3 - 20px);
-      padding: 10px;
-      text-align: center;
+    #select-color .color6 span {
+        border: 4px solid #403136;
+        width: 32px;
+        height: 32px;
     }
-    #select-color a {
-      background: #403136;
-      padding: 10px 30px;
-      border-radius: 40px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    :root {
+        --checker-color-1: #ccc;
+        --checker-color-2: #fff;
+        --checker-size: 5px;
+        --checker-gradient: linear-gradient(45deg, var(--checker-color-1) 25%, transparent 25%, transparent 75%, var(--checker-color-1) 75%);
     }
-    #select-color span.color6 {
-      border: 4px solid #403136;
-      width: 32px;
-      height: 32px;
+    .colorTransparent {
+        background-color: var(--checker-color-2);
+        background-image: var(--checker-gradient), var(--checker-gradient);
+        background-position: 0 0, var(--checker-size) var(--checker-size);
+        background-size: calc(var(--checker-size) * 2) calc(var(--checker-size) * 2);
     }
     .color1 { background: #333333 !important; }
     .color2 { background: #403136 !important; }
@@ -79,52 +87,45 @@
     .color4 { background: #feead1 !important; }
     .color5 { background: #007a83 !important; }
     .color6 { background: #bdd2ce !important; }
+    .colors ul {
+        padding: 0px;
+    }
+    .colors li{
+        display: inline-block;
+        margin: 2px;
+    }
+    .colors label {
+        margin: 0px auto;
+        width: 100%;
+    }
+    .colors .colors-select {
+        display: flex;
+        flex-direction: horizontal;
+    }
+    .colors .colors-select div{
+        flex: 1;
+    }
     </style>
   </head>
   <body>
-    <div id="container">
-      <div id="box-intro" class="box">
+    <div id="select-color" class="box colors">
         <h1>Creador de logo de O.D.I.A.</h1>
-      </div>
-      <div id="select-color" class="box">
         <h2>Seleccione el color</h2>
-        <table>
-          <tr>
-            <td>Transparente</td>
-            <td><a href="#" class="select-background">Fondo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color1"></span></td>
-            <td><a href="#" class="select-background" data-color="color1">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color1">Logo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color2"></span></td>
-            <td><a href="#" class="select-background" data-color="color2">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color2">Logo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color3"></span></td>
-            <td><a href="#" class="select-background" data-color="color3">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color3">Logo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color4"></span></td>
-            <td><a href="#" class="select-background" data-color="color4">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color4">Logo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color5"></span></td>
-            <td><a href="#" class="select-background" data-color="color5">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color5">Logo</a></td>
-          </tr>
-          <tr>
-            <td><span class="sample color6"></span></td>
-            <td><a href="#" class="select-background" data-color="color6">Fondo</a></td>
-            <td><a href="#" class="select-color" data-color="color6">Logo</a></td>
-          </tr>
-        </table>
-      </div>
+        <div class="colors-select">
+            <div>
+              <label>fondo</label>
+              <ul id="bg-color-selector">
+              </ul>
+            </div>
+            <div>
+              <label>logo</label>
+              <ul id="logo-color-selector">
+                <li><span class="sample color6"></span></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <div id="container">
       <div id="select-logo" class="box">
         <h2>Seleccione el formato</h2>
         <ul>
@@ -139,42 +140,48 @@
       </div>
     </div>
     <script>
-    const select_bg = document.getElementsByClassName('select-background')
-    for (let i = 0; i < select_bg.length; i++) {
-      const button = select_bg[i]
-      button.addEventListener('click', function(e) {
-        e.preventDefault()
-        const color = button.getAttribute('data-color')
-        const previews = document.getElementsByClassName('logo-preview')
-        for (let i = 0; i < previews.length; i++) {
-          const preview = previews[i]
-          for (let j = 1; j <= 6; j++) {
-            preview.classList.remove('color' + j)
-          }
-          if (color) {
-            preview.classList.add(color)
-          }
-        }
+    const COLORS = ['Transparent', 1, 2, 3, 4, 5, 6];
+    const fill_colors = (selector, fn, transparent = false) => {
+      const ul = document.getElementById(selector)
+      COLORS.slice(transparent ? 0 : 1).map((c, i) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        const span = document.createElement('span');
+        li.className = `sample color${c}`;
+        if (i === 0) li.classList.add('active');
+        a.href = '#'
+        a.appendChild(span);
+        li.appendChild(a);
+        ul.appendChild(li);
+        fn(li);
       })
     }
-    const select_color = document.getElementsByClassName('select-color')
-    for (let i = 0; i < select_color.length; i++) {
-      const button = select_color[i]
-      button.addEventListener('click', function(e) {
+    const previews = Array.from(document.getElementsByClassName('logo-preview'));
+    const set_bg = element => {
+      element.addEventListener('click', e => {
         e.preventDefault()
-        const color = button.getAttribute('data-color')
-        const previews = document.getElementsByClassName('logo-preview')
-        for (let i = 0; i < previews.length; i++) {
-          const preview = previews[i]
-          const paths = preview.getElementsByTagName('path')
-          for (let j = 0; j < paths.length; j++) {
-            const path = paths[j]
-            const selectedColor = window.getComputedStyle(document.getElementsByClassName(color)[0], null).getPropertyValue('background-color');
-            path.style.fill = selectedColor;
-          }
-        }
+        element.parentElement.children.forEach(c => c.classList.remove('active'));
+        element.classList.add('active');
+        previews.map(preview =>
+          preview.className = element.className.replace('sample', 'logo-preview'))
       })
     }
+    const set_color = element => {
+      element.addEventListener('click', e => {
+        e.preventDefault()
+        element.parentElement.children.forEach(c => c.classList.remove('active'));
+        element.classList.add('active');
+        const color = window.getComputedStyle(element).backgroundColor;
+        previews.map(preview => {
+          const paths = Array.from(preview.getElementsByTagName('path'))
+          paths.map(path => {
+            path.style.fill = color;
+          })
+        })
+      })
+    }
+    fill_colors('bg-color-selector', set_bg, true);
+    fill_colors('logo-color-selector', set_color, false);
     const images = document.getElementsByClassName('logo-preview')
     for (let i = 0; i < images.length; i++) {
       const image = images[i]
@@ -188,7 +195,6 @@
         image.firstChild.style.height = (elWidth * height / width) + 'px';
       })
     }
-
     const logo_preview = document.getElementsByClassName('logo-preview')
     for (let i = 0; i < logo_preview.length; i++) {
       const button = logo_preview[i]
