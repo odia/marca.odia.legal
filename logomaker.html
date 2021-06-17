@@ -220,7 +220,6 @@
           rect.setAttribute('fill', bgColor)
           div.firstChild.insertBefore(rect, div.firstChild.firstChild)
         }
-        document.body.appendChild(canvas)
         const v = canvg.Canvg.fromString(ctx, div.innerHTML)
         v.start()
         const a = document.createElement('a')
