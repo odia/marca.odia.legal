@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway%20Heavy|Merriweather">
+    <title>Creador de logo de O.D.I.A.</title>
+    <script src="assets/canvg.js"></script>
+    <style>
+    #container {
+      margin: auto;
+      max-width: 800px;
+      min-width: 600px;
+      font: 14px Merriweather;
+    }
+    .box {
+      padding: 40px;
+      margin: 10px 0;
+    }
+    #select-color {
+      background: #bdd2ce;
+      color: black;
+    }
+    #select-logo {
+      background: #feead1;
+      color: black;
+    }
+    #select-logo ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    #select-logo ul li {
+      padding: 0;
+    }
+    #select-logo ul li a {
+      display: block;
+      background: url('images/transparent.png') repeat;
+      padding: 42px;
+      width: calc(100% - 100px);
+      border: 4px solid #403136;
+      margin: 20px 0 0 0;
+    }
+    #select-logo ul li svg {
+      display: block;
+      width: 100%;
+    }
+
+    #select-color span.sample {
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+    }
+    #select-color table {
+      width: 100%;
+    }
+    #select-color td {
+      width: calc(100% / 3 - 20px);
+      padding: 10px;
+      text-align: center;
+    }
+    #select-color a {
+      background: #403136;
+      padding: 10px 30px;
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #select-color span.color6 {
+      border: 4px solid #403136;
+      width: 32px;
+      height: 32px;
+    }
+    .color1 { background: #333333 !important; }
+    .color2 { background: #403136 !important; }
+    .color3 { background: #ce342c !important; }
+    .color4 { background: #feead1 !important; }
+    .color5 { background: #007a83 !important; }
+    .color6 { background: #bdd2ce !important; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="box-intro" class="box">
+        <h1>Creador de logo de O.D.I.A.</h1>
+      </div>
+      <div id="select-color" class="box">
+        <h2>Seleccione el color</h2>
+        <table>
+          <tr>
+            <td>Transparente</td>
+            <td><a href="#" class="select-background">Fondo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color1"></span></td>
+            <td><a href="#" class="select-background" data-color="color1">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color1">Logo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color2"></span></td>
+            <td><a href="#" class="select-background" data-color="color2">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color2">Logo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color3"></span></td>
+            <td><a href="#" class="select-background" data-color="color3">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color3">Logo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color4"></span></td>
+            <td><a href="#" class="select-background" data-color="color4">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color4">Logo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color5"></span></td>
+            <td><a href="#" class="select-background" data-color="color5">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color5">Logo</a></td>
+          </tr>
+          <tr>
+            <td><span class="sample color6"></span></td>
+            <td><a href="#" class="select-background" data-color="color6">Fondo</a></td>
+            <td><a href="#" class="select-color" data-color="color6">Logo</a></td>
+          </tr>
+        </table>
+      </div>
+      <div id="select-logo" class="box">
+        <h2>Seleccione el formato</h2>
+        <ul>
+            <li><a href="#" class="logo-preview" id="preview-isotipo"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isologotipo2"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isologotipo3"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isologotipo4"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isologotipo"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isotipo"></a></li>
+            <li><a href="#" class="logo-preview" id="preview-isotipo"></a></li>
+        </ul>
+      </div>
+    </div>
+    <script>
+    const select_bg = document.getElementsByClassName('select-background')
+    for (let i = 0; i < select_bg.length; i++) {
+      const button = select_bg[i]
+      button.addEventListener('click', function(e) {
+        e.preventDefault()
+        const color = button.getAttribute('data-color')
+        const previews = document.getElementsByClassName('logo-preview')
+        for (let i = 0; i < previews.length; i++) {
+          const preview = previews[i]
+          for (let j = 1; j <= 6; j++) {
+            preview.classList.remove('color' + j)
+          }
+          if (color) {
+            preview.classList.add(color)
+          }
+        }
+      })
+    }
+    const select_color = document.getElementsByClassName('select-color')
+    for (let i = 0; i < select_color.length; i++) {
+      const button = select_color[i]
+      button.addEventListener('click', function(e) {
+        e.preventDefault()
+        const color = button.getAttribute('data-color')
+        const previews = document.getElementsByClassName('logo-preview')
+        for (let i = 0; i < previews.length; i++) {
+          const preview = previews[i]
+          const paths = preview.getElementsByTagName('path')
+          for (let j = 0; j < paths.length; j++) {
+            const path = paths[j]
+            const selectedColor = window.getComputedStyle(document.getElementsByClassName(color)[0], null).getPropertyValue('background-color');
+            path.style.fill = selectedColor;
+          }
+        }
+      })
+    }
+    const images = document.getElementsByClassName('logo-preview')
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i]
+      fetch('logomaker/' + image.id.substr(8) + '.svg').then(function(r) {
+        return r.text()
+      }).then(function(s) {
+        image.innerHTML = s.replace(/^<\?.+\?>/, '').replace(/<!DOCTYPE .+/, '').trim()
+        const width = parseInt(image.firstChild.getAttribute('width'), 10)
+        const height = parseInt(image.firstChild.getAttribute('height'), 10)
+        const elWidth = image.getBoundingClientRect().width
+        image.firstChild.style.height = (elWidth * height / width) + 'px';
+      })
+    }
+
+    const logo_preview = document.getElementsByClassName('logo-preview')
+    for (let i = 0; i < logo_preview.length; i++) {
+      const button = logo_preview[i]
+      button.addEventListener('click', function(e) {
+        e.preventDefault()
+        const canvas = document.createElement('canvas')
+        const ctx = canvas.getContext('2d');
+        const div = document.createElement('div')
+        div.innerHTML = button.innerHTML
+        const width = parseInt(button.firstChild.getAttribute('width'), 10)
+        const height = parseInt(button.firstChild.getAttribute('height'), 10)
+        const elHeight = 1000
+        div.firstChild.setAttribute('height', elHeight)
+        div.firstChild.setAttribute('width', elHeight * width / height)
+        div.firstChild.style.height = elHeight + 'px'
+        const bgColor = window.getComputedStyle(button, null).getPropertyValue('background-color');
+        if (bgColor) {
+          const rect = document.createElement('rect')
+          rect.setAttribute('x', '-5%')
+          rect.setAttribute('y', '-5%')
+          rect.setAttribute('width', '110%')
+          rect.setAttribute('height', '110%')
+          rect.setAttribute('fill', bgColor)
+          div.firstChild.insertBefore(rect, div.firstChild.firstChild)
+        }
+        document.body.appendChild(canvas)
+        const v = canvg.Canvg.fromString(ctx, div.innerHTML)
+        v.start()
+        const a = document.createElement('a')
+        a.download = 'odia_logo.png'
+        a.href = canvas.toDataURL('image/png');
+        a.click()
+      })
+    }
+    </script>
+  </body>
+</html>
