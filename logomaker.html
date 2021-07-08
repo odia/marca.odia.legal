@@ -87,6 +87,7 @@
     .color4 { background: #feead1 !important; }
     .color5 { background: #007a83 !important; }
     .color6 { background: #bdd2ce !important; }
+    .color7 { background: #ffffff !important; }
     .colors ul {
         padding: 0px;
     }
@@ -140,7 +141,7 @@
       </div>
     </div>
     <script>
-    const COLORS = ['Transparent', 1, 2, 3, 4, 5, 6];
+    const COLORS = ['Transparent', 1, 2, 3, 4, 5, 6, 7];
     const fill_colors = (selector, fn, transparent = false) => {
       const ul = document.getElementById(selector)
       COLORS.slice(transparent ? 0 : 1).map((c, i) => {
